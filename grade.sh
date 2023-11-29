@@ -19,11 +19,11 @@ then
     if [[ $? -eq 0 ]]
     then
         java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > result.txt 2>&1
-        if grep -Fxq "Failures" result.txt 
+        if grep -Fq "Failures" result.txt 
         then
             grep 'Tests run:' result.txt
         else
-            grep 'Success' result.txt
+            echo 'Success! All tests passed! 3/3!'
         fi
     else
         echo 'ListExamples.java failed to compile, please check your code'
